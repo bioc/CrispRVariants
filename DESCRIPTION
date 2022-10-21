@@ -1,11 +1,11 @@
 Package: CrispRVariants
 Type: Package
 Title: Tools for counting and visualising mutations in a target location
-Version: 1.25.0
+Version: 1.25.1
 Authors@R: c(person(given = "Helen", family = "Lindsay", role = c("aut", "cre"), email =
-          "helen.lindsay@uzh.ch"))
+          "helen.lindsay@chuv.ch"))
 Author: Helen Lindsay [aut, cre]
-Maintainer: Helen Lindsay <helen.lindsay@uzh.ch>
+Maintainer: Helen Lindsay <helen.lindsay@chuv.ch>
 Description: CrispRVariants provides tools for analysing the results of a
     CRISPR-Cas9 mutagenesis sequencing experiment, or other sequencing experiments
     where variants within a given region are of interest. These tools allow users to
