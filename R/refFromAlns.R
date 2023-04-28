@@ -14,7 +14,7 @@
 #'                   package = "CrispRVariants")
 #'alns <- GenomicAlignments::readGAlignments(bam,
 #'           param = Rsamtools::ScanBamParam(tag = "MD", what = "seq"))
-#' To get the reference sequence from the a given location:
+#'# To get the reference sequence from the a given location:
 #'location <- GenomicRanges::GRanges("chr17", IRanges::IRanges(23648420,23648430))
 #'refFromAlns(alns, location = location)
 #'@export

@@ -51,7 +51,7 @@
                    " options."))
   }
   
-  if (class(chimeras) == "character"){
+  if (is.character(chimeras)){
     # Chimeras can either be a GAlignments object or a tag
     # indicating how they are to be treated
     if (chimeras == "merge"){

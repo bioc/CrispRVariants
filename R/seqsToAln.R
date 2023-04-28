@@ -80,7 +80,7 @@ selectAlnRegions <- function(alns, reference, target,
     # make keep relative to target if not already
     keep <- .checkRelativeLocs(target, keep)
     to_delete <- .invertKeepRanges(target, keep)
-    if (! class(to_delete) == "IRanges") return()
+    if (! is(to_delete, "IRanges")) return()
     
     result <- Biostrings::extractAt(as(alns, "XStringSet"), keep)
     ref_result <- Biostrings::extractAt(as(reference, "XString"), keep)    

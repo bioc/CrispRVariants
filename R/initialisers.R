@@ -251,7 +251,7 @@ setMethod("readsToTarget", signature("character", "GRanges"),
     .checkReadsToTarget(target, reference, target.loc,
                         reverse.complement, orientation, chimeras)
             
-    if (! class(reference) == "DNAString"){
+    if (! is(reference, "DNAString")){
       reference <- Biostrings::DNAString(reference[[1]])
     }
     
@@ -597,7 +597,7 @@ alnsToCrisprSet <- function(alns, reference, target, reverse.complement,
     crispr.runs <- lapply(seq_along(alns), function(i){
       aln <- alns[[i]]
 
-      if (!class(aln) == "GAlignments") {
+      if (! is(aln, "GAlignments")) {
         aln <- GenomicAlignments::GAlignments()
       }
 

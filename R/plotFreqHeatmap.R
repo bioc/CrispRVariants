@@ -73,7 +73,7 @@ setMethod("plotFreqHeatmap", signature("matrix"),
     if (! length(group) == ncol(obj)){
       stop("Group should be a vector or factor the same length as ncol(obj)")
     }
-    if (! class(group) == "factor") group <- factor(group, levels = unique(group))
+    if (! is.factor(group)) group <- factor(group, levels = unique(group))
 
     obj <- obj[,order(group), drop = FALSE]
     if (length(header) > 1){

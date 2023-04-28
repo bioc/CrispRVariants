@@ -567,7 +567,7 @@ Return value:
     if (length(not_mutated) > 0) freqs <- freqs[-not_mutated,,drop = FALSE]
 
     if (! is.null(group)){
-      if (! class(group) == "factor") group <- as.factor(group)
+      if (! is.factor(group)) group <- as.factor(group)
       result <- lapply(levels(group), function(g){
         eff <- .self$.calculateEfficiency(freqs[,group == g, drop = FALSE],
                                           total_seqs, count.alleles,

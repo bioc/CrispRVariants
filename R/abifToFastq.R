@@ -18,8 +18,11 @@
 #'@author Helen Lindsay
 #'@return None.  Sequences are appended to the outfname.
 #'@examples
+#'\donttest{
+#'# Running this code will write the fastq file to "IM2033.fastq"
 #'ab1_fname <- system.file("extdata", "IM2033.ab1", package = "CrispRVariants")
 #'abifToFastq("IM2033", ab1_fname, "IM2033.fastq")
+#'}
 #'@export
 abifToFastq <- function(seqname, fname, outfname, trim = TRUE, cutoff = 0.05,
                         min_seq_len = 20, offset = 33, recall = FALSE){

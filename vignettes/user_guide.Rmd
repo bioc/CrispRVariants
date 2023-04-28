@@ -237,9 +237,9 @@ bam filenames listed above.
 
 ```{r, message=FALSE}
 # The metadata and bam files for this experiment are included with CrispRVariants
-library("gdata")
+library("readxl")
 md_fname <- system.file(package="CrispRVariants", "extdata/metadata/metadata.xls")
-md <- gdata::read.xls(md_fname, 1)
+md <- readxl::read_xls(md_fname, 1)
 md
 
 # Get the bam filenames from the metadata table
@@ -628,7 +628,7 @@ object.
 library("CrispRVariants")
 library("rtracklayer")
 library("GenomicFeatures")
-library("gdata")
+library("readxl")
 
 # Load the guide location
 gd_fname <- system.file(package="CrispRVariants", "extdata/bed/guide.bed")
@@ -644,7 +644,7 @@ load(ref_fname)
 # Load the metadata table, which gives the sample names
 md_fname <- system.file(package="CrispRVariants",
                         "extdata/metadata/metadata.xls")
-md <- gdata::read.xls(md_fname, 1)
+md <- readxl::read_xls(md_fname, 1)
 
 # Get the list of bam files
 bam_dir <- system.file(package="CrispRVariants", "extdata/bam")
@@ -1193,4 +1193,10 @@ print(c("Total number of reads: ", colSums(var_counts_inc_long_dels)))
 # This alignment can be viewed using `plotChimeras` 
 ch <- getChimeras(cset2, sample = 1)
 plotChimeras(ch, annotations = cset2$target)
+```
+
+# Session Info
+
+```{r}
+sessionInfo()
 ```
