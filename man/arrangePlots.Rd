@@ -4,9 +4,15 @@
 \alias{arrangePlots}
 \title{Arrange plots for plotVariants:CrisprSet}
 \usage{
-arrangePlots(top.plot, left.plot, right.plot, fig.height = NULL,
-  col.wdth.ratio = c(2, 1), row.ht.ratio = c(1, 6),
-  left.plot.margin = grid::unit(c(0.1, 0, 3, 0.2), "lines"))
+arrangePlots(
+  top.plot,
+  left.plot,
+  right.plot,
+  fig.height = NULL,
+  col.wdth.ratio = c(2, 1),
+  row.ht.ratio = c(1, 6),
+  left.plot.margin = grid::unit(c(0.1, 0.2, 3, 0.2), "lines")
+)
 }
 \arguments{
 \item{top.plot}{ggplot grob, placed on top of the figure, spanning the figure

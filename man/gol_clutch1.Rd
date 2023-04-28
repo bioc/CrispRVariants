@@ -5,7 +5,9 @@
 \alias{gol_clutch1}
 \alias{gol}
 \title{Variant sequences from golden clutch 1 (Burger et al)}
-\format{A CrisprSet object countaining 8 samples}
+\format{
+A CrisprSet object countaining 8 samples
+}
 \usage{
 data(gol_clutch1)
 }

@@ -4,8 +4,14 @@
 \alias{mergeChimeras}
 \title{mergeChimeras}
 \usage{
-mergeChimeras(bam, chimera_idxs = NULL, verbose = TRUE,
-  max_read_overlap = 10, max_unmapped = 4, name = NULL)
+mergeChimeras(
+  bam,
+  chimera_idxs = NULL,
+  verbose = TRUE,
+  max_read_overlap = 10,
+  max_unmapped = 4,
+  name = NULL
+)
 }
 \arguments{
 \item{bam}{A GenomicAlignments::GAlignments object}

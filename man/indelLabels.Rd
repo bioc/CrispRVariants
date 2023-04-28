@@ -4,8 +4,15 @@
 \alias{indelLabels}
 \title{indelLabels}
 \usage{
-indelLabels(alns, rc = FALSE, genome.to.pos = NULL, keep.ops = c("I", "D",
-  "N"), regions = NULL, ...)
+indelLabels(
+  alns,
+  rc = FALSE,
+  genome.to.pos = NULL,
+  keep.ops = c("I", "D", "N"),
+  regions = NULL,
+  as.string = TRUE,
+  ...
+)
 }
 \arguments{
 \item{alns}{(GAligments) aligned reads for finding variants}
@@ -21,6 +28,8 @@ values being positions to use in labels (Default: NULL)}
 
 \item{regions}{IRanges(k) Regions for counting insertions and
 deletions.  Insertions on the right border are not counted.}
+
+\item{as.string}{Return labels as strings (Default: TRUE)}
 
 \item{...}{extra formatting arguments}
 }

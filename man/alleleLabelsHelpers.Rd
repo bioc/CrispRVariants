@@ -5,11 +5,23 @@
 \alias{.findMismatches}
 \title{formatVarLabels}
 \usage{
-.formatVarLabels(grl, labels, position = c("start", "end"),
-  genome.to.pos = NULL, pos.to.lab = ":", as.string = TRUE)
+.formatVarLabels(
+  grl,
+  labels,
+  position = c("start", "end"),
+  genome.to.pos = NULL,
+  pos.to.lab = ":",
+  as.string = TRUE
+)
 
-.findMismatches(alns, ref.seq, ref.start, regions = NULL, strand = "+",
-  min.pct = 0)
+.findMismatches(
+  alns,
+  ref.seq,
+  ref.start,
+  regions = NULL,
+  strand = "+",
+  min.pct = 0
+)
 }
 \arguments{
 \item{grl}{(GRangesList) A GRangesList of variants.  The position

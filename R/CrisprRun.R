@@ -157,7 +157,7 @@ Input parameters:
     
     
     # target.loc is wrt reference sequence, -ve if ref is -ve
-    # upstream and downstream defined wrt the targt.loc
+    # upstream and downstream defined wrt the target.loc
     
     # Find indels
     

@@ -4,8 +4,16 @@
 \alias{makeAlignmentTilePlot}
 \title{Internal CrispRVariants function for creating the plotAlignments background}
 \usage{
-makeAlignmentTilePlot(m, ref, xlab, plot.text.size, axis.text.size, xtick.labs,
-  xtick.breaks, tile.height)
+makeAlignmentTilePlot(
+  m,
+  ref,
+  xlab,
+  plot.text.size,
+  axis.text.size,
+  xtick.labs,
+  xtick.breaks,
+  tile.height
+)
 }
 \arguments{
 \item{m}{A matrix with column headings Var1: y location, Var2: x location, 

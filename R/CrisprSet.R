@@ -235,7 +235,7 @@ CrisprSet$methods(
       is_ref <- grep(.self$pars["match_label"], rownames(m))
       is_snv <- grep(.self$pars["mismatch_label"], rownames(m))
       new_order <- setdiff(1:nrow(m), c(is_ref,is_snv))
-      m <- m[c(is_ref, is_snv, setdiff(1:nrow(m), c(is_ref,is_snv))),,drop = FALSE]
+      m <- m[c(is_ref,is_snv, setdiff(1:nrow(m), c(is_ref,is_snv))),, drop = FALSE]
     }
 
     .self$field("cigar_freqs", m)

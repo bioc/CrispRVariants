@@ -4,9 +4,16 @@
 \alias{annotateGenePlot}
 \title{Plots and annotates transcripts}
 \usage{
-annotateGenePlot(txdb, target, target.colour = "red", target.size = 1,
-  gene.text.size = 10, panel.spacing = grid::unit(c(0.1, 0.1, 0.1, 0.1),
-  "lines"), plot.title = NULL, all.transcripts = TRUE)
+annotateGenePlot(
+  txdb,
+  target,
+  target.colour = "red",
+  target.size = 1,
+  gene.text.size = 10,
+  panel.spacing = grid::unit(c(0.1, 0.1, 0.1, 0.1), "lines"),
+  plot.title = NULL,
+  all.transcripts = TRUE
+)
 }
 \arguments{
 \item{txdb}{A GenomicFeatures:TxDb object}

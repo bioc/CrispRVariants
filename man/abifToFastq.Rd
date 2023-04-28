@@ -4,8 +4,16 @@
 \alias{abifToFastq}
 \title{Read a file in ab1 (Sanger) format and convert to fastq}
 \usage{
-abifToFastq(seqname, fname, outfname, trim = TRUE, cutoff = 0.05,
-  min_seq_len = 20, offset = 33, recall = FALSE)
+abifToFastq(
+  seqname,
+  fname,
+  outfname,
+  trim = TRUE,
+  cutoff = 0.05,
+  min_seq_len = 20,
+  offset = 33,
+  recall = FALSE
+)
 }
 \arguments{
 \item{seqname}{name of sequence, to appear in fastq file}

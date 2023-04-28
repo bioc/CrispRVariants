@@ -5,11 +5,24 @@
 \alias{selectAlnRegions}
 \title{Creates a text alignment from a set of cigar strings}
 \usage{
-seqsToAln(cigar, dnaseq, target, del_char = "-", aln_start = NULL,
-  reverse_complement = FALSE, allow_partial = FALSE)
+seqsToAln(
+  cigar,
+  dnaseq,
+  target,
+  del_char = "-",
+  aln_start = NULL,
+  reverse_complement = FALSE,
+  allow_partial = FALSE
+)
 
-selectAlnRegions(alns, reference, target, keep, join = "/ \%s /",
-  border.gaps = FALSE)
+selectAlnRegions(
+  alns,
+  reference,
+  target,
+  keep,
+  join = "/ \%s /",
+  border.gaps = FALSE
+)
 }
 \arguments{
 \item{cigar}{A list of cigar strings to align}
@@ -63,7 +76,5 @@ a separator "join".  Alignments should be equal length, e.g.
 created by seqsToAln
 }
 \author{
-Helen Lindsay
-
 Helen Lindsay
 }

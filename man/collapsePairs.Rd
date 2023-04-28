@@ -4,8 +4,13 @@
 \alias{collapsePairs}
 \title{Internal CrispRVariants function for collapsing pairs with concordant indels}
 \usage{
-collapsePairs(alns, use.consensus = TRUE, keep.unpaired = TRUE,
-  verbose = TRUE, ...)
+collapsePairs(
+  alns,
+  use.consensus = TRUE,
+  keep.unpaired = TRUE,
+  verbose = TRUE,
+  ...
+)
 }
 \arguments{
 \item{alns}{A GAlignments object.  We do not use GAlignmentPairs because amplicon-seq

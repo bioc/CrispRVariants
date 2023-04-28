@@ -9,7 +9,7 @@
 #'@return The reference sequences corresponding to the provided alignments
 #'@author Helen Lindsay
 #'@rdname refFromAlns
-#'@example 
+#'@examples 
 #'bam <- system.file("extdata", "bam/ab1_ptena_wildtype_looking_embryo_1_s.bam",
 #'                   package = "CrispRVariants")
 #'alns <- GenomicAlignments::readGAlignments(bam,

@@ -106,8 +106,11 @@ Input parameters:
 Return value:
   A named vector classifying variant alleles as insertions, deletions, etc}
 
-\item{\code{consensusAlleles(cig_freqs = .self$cigar_freqs, return_nms = TRUE,
-  match.ops = c("M", "X", "="))}}{Description:
+\item{\code{consensusAlleles(
+  cig_freqs = .self$cigar_freqs,
+  return_nms = TRUE,
+  match.ops = c("M", "X", "=")
+)}}{Description:
 Get variants by their cigar string, make the pairwise alignments for the consensus
 sequence for each variant allele
 
@@ -135,8 +138,12 @@ Input parameters:
                 variant combination may contain.  (default: 0)
   verbose:      If TRUE, print the number of sequences removed (default: TRUE)}
 
-\item{\code{filterVariants(cig_freqs = NULL, names = NULL, columns = NULL,
-  include.chimeras = TRUE)}}{Description:
+\item{\code{filterVariants(
+  cig_freqs = NULL,
+  names = NULL,
+  columns = NULL,
+  include.chimeras = TRUE
+)}}{Description:
   Relabels specified variants in a table of variant allele counts as 
   non-variant, e.g. variants known to exist in control samples.
   Accepts either a size, e.g. "1D", or a specific mutation, e.g. "-4:3D".
@@ -153,11 +160,22 @@ Input parameters:
                     occur in these columns.  (Default: NULL)
   include.chimeras: Should chimeric reads be included? (Default: TRUE)}
 
-\item{\code{heatmapCigarFreqs(as.percent = TRUE, x.size = 8, y.size = 8,
-  x.axis.title = NULL, x.angle = 90, min.freq = 0, min.count = 0,
-  top.n = nrow(.self$cigar_freqs), type = c("counts", "proportions"),
-  header = c("default", "counts", "efficiency"), order = NULL,
-  alleles = NULL, create.plot = TRUE, ...)}}{Description:
+\item{\code{heatmapCigarFreqs(
+  as.percent = TRUE,
+  x.size = 8,
+  y.size = 8,
+  x.axis.title = NULL,
+  x.angle = 90,
+  min.freq = 0,
+  min.count = 0,
+  top.n = nrow(.self$cigar_freqs),
+  type = c("counts", "proportions"),
+  header = c("default", "counts", "efficiency"),
+  order = NULL,
+  alleles = NULL,
+  create.plot = TRUE,
+  ...
+)}}{Description:
     Internal method for CrispRVariants:plotFreqHeatmap, optionally filters the table
     of variants, then a table of variant counts, coloured by counts or proportions.
 
@@ -204,10 +222,17 @@ cig_freqs:  A table of variant allele frequencies (by default: .self$cigar_freqs
 ...:        Extra arguments for CrispRVariants::seqsToAln, e.g. which symbol
             should be used for representing deleted bases}
 
-\item{\code{mutationEfficiency(snv = c("non_variant", "include", "exclude"),
-  include.chimeras = TRUE, exclude.cols = NULL, group = NULL,
-  filter.vars = NULL, filter.cols = NULL, count.alleles = FALSE,
-  per.sample = TRUE, min.freq = 0)}}{Description:
+\item{\code{mutationEfficiency(
+  snv = c("non_variant", "include", "exclude"),
+  include.chimeras = TRUE,
+  exclude.cols = NULL,
+  group = NULL,
+  filter.vars = NULL,
+  filter.cols = NULL,
+  count.alleles = FALSE,
+  per.sample = TRUE,
+  min.freq = 0
+)}}{Description:
   Calculates summary statistics for the mutation efficiency, i.e.
   the percentage of reads that contain a variant.  Reads that do not
   contain and insertion or deletion, but do contain a single nucleotide
@@ -240,9 +265,18 @@ Return value:
   A vector of efficiency statistics per sample and overall, or a
   matrix if a group is supplied.}
 
-\item{\code{plotVariants(min.freq = 0, min.count = 0, top.n = nrow(.self$cigar_freqs),
-  alleles = NULL, renumbered = .self$pars["renumbered"], add.other = TRUE,
-  create.plot = TRUE, plot.regions = NULL, allow.partial = TRUE, ...)}}{Description:
+\item{\code{plotVariants(
+  min.freq = 0,
+  min.count = 0,
+  top.n = nrow(.self$cigar_freqs),
+  alleles = NULL,
+  renumbered = .self$pars["renumbered"],
+  add.other = TRUE,
+  create.plot = TRUE,
+  plot.regions = NULL,
+  allow.partial = TRUE,
+  ...
+)}}{Description:
   Internal method for CrispRVariants:plotAlignments, optionally filters the table
   of variants, then plots variants with respect to the reference sequence,
   collapsing insertions and displaying insertion sequences below the plot.
@@ -276,7 +310,7 @@ Return value:
 \examples{
 # Load the metadata table
 md_fname <- system.file("extdata", "gol_F1_metadata_small.txt", package = "CrispRVariants")
-md <- read.table(md_fname, sep = "\\t", stringsAsFactors = FALSE)
+md <- read.table(md_fname, sep = "\t", stringsAsFactors = FALSE)
 
 # Get bam filenames and their full paths
 bam_fnames <- sapply(md$bam.filename, function(fn){
@@ -290,7 +324,7 @@ crispr_set <- readsToTarget(bam_fnames, target = gd, reference = reference,
 }
 \seealso{
 \code{\link{readsToTarget}} and \code{\link{readsToTargets}}
-for initialising a CrisprSet, \code{\link{CrisprRun}}
+for initialising a CrisprSet, \code{\link{CrisprRun}} container for sample data.
 }
 \author{
 Helen Lindsay

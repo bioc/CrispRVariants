@@ -71,7 +71,8 @@ setMethod("narrowAlignments", signature("GAlignments", "GRanges"),
     # Find the on target operations
     clipped <- unlist(GenomicAlignments::explodeCigarOps(cigar(alns)))
     clipped <- clipped %in% clipping.ops
-    on_target <- unlist(start(genomic) <= end(target) & end(genomic) >= start(target))
+    on_target <- unlist(start(genomic) <= end(target) &
+                          end(genomic) >= start(target))
     on_target <- on_target & ! clipped
     on_target <- relist(on_target, ref_ranges)
     
@@ -97,7 +98,7 @@ setMethod("narrowAlignments", signature("GAlignments", "GRanges"),
     genomic_offset_fom <- start(target) - start(genomic)[first_on_tg][first_op_m]
     sq_starts[first_op_m] <- sq_starts[first_op_m] + genomic_offset_fom
     
-    # Adjust the genomic starting location for the alignments that will be narrowed
+    # Adjust the genomic starting location for alignments that will be narrowed
     genomic_starts <- start(genomic)[first_on_tg]
     genomic_starts[first_op_m] <- start(target)
     
@@ -119,7 +120,8 @@ setMethod("narrowAlignments", signature("GAlignments", "GRanges"),
     end(ref_ranges[is_last_m]) <- lom_ends
     
     # Get the width of on target reference ranges, recreate cigars
-    # The width is the reference range unless an insertion, in which case the query range
+    # The width is the reference range unless op is an insertion,
+    # in which case it is the query range
     ref_ranges <- relist(ref_ranges, genomic)
     ref_ranges <- ref_ranges[on_target]
     qwdths <- unlist(width(q_ranges)[on_target])

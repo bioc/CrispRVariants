@@ -4,8 +4,14 @@
 \alias{.getAxisCoords}
 \title{.getAxisCoords}
 \usage{
-.getAxisCoords(locations, labels = NULL, loc.boundaries = NULL,
-  lab.boundaries = c(-1, 1), label.at = 5, min.tick.sep = 1)
+.getAxisCoords(
+  locations,
+  labels = NULL,
+  loc.boundaries = NULL,
+  lab.boundaries = c(-1, 1),
+  label.at = 5,
+  min.tick.sep = 1
+)
 }
 \arguments{
 \item{locations}{character(n) Actual x coordinates, or the desired

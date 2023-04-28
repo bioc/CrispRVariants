@@ -4,10 +4,18 @@
 \alias{readTargetBam}
 \title{Internal CrispRVariants function for reading and filtering a bam file}
 \usage{
-readTargetBam(file, target, exclude.ranges = GRanges(), exclude.names = NA,
-  chimera.to.target = 5, chimeras = c("count", "ignore", "exclude",
-  "merge"), max.read.overlap = 10, max.unmapped = 4, by.flag = TRUE,
-  verbose = TRUE)
+readTargetBam(
+  file,
+  target,
+  exclude.ranges = GRanges(),
+  exclude.names = NA,
+  chimera.to.target = 5,
+  chimeras = c("count", "ignore", "exclude", "merge"),
+  max.read.overlap = 10,
+  max.unmapped = 4,
+  by.flag = TRUE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{file}{The name of a bam file to read in}

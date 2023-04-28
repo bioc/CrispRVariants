@@ -4,10 +4,19 @@
 \alias{plotChimeras}
 \title{Display a dot plot of chimeric alignments}
 \usage{
-plotChimeras(chimeric.alns, max.gap = 10, tick.sep = 20, text.size = 10,
-  title.size = 16, gap.pad = 20, legend.title = "Chromosome",
-  xangle = 90, wrt.forward = FALSE, annotate.within = 20,
-  annotations = GenomicRanges::GRanges())
+plotChimeras(
+  chimeric.alns,
+  max.gap = 10,
+  tick.sep = 20,
+  text.size = 10,
+  title.size = 16,
+  gap.pad = 20,
+  legend.title = "Chromosome",
+  xangle = 90,
+  wrt.forward = FALSE,
+  annotate.within = 20,
+  annotations = GenomicRanges::GRanges()
+)
 }
 \arguments{
 \item{chimeric.alns}{A GAlignments object containing only the chimeric

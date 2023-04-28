@@ -2,7 +2,7 @@
 title: "CrispRVariants User Guide"
 author: "Helen Lindsay, Mark Robinson"
 output: 
-  BiocStyle::pdf_document:
+  BiocStyle::html_document:
     fig_caption: true
 package: "CrispRVariants"
 vignette: >

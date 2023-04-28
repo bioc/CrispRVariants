@@ -29,7 +29,7 @@
   if (! is.null(reference)){
     # readsToTarget signature GAlignments does not take a reference
     if (! width(target) == nchar(reference)){
-      stop("The width of the target should equal the",
+      stop("The width of the target should equal the ",
            "number of characters in the reference sequence")
     }  
   }
