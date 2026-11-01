@@ -37,7 +37,7 @@ setMethod("refFromAlns", signature(alns = "GAlignments", location = "ANY"),
       }
       
       # Using cigar, get alignments with respect to the reference
-      onref <- GenomicAlignments::sequenceLayer(mcols(alns)$seq, cigar(alns))
+      onref <- cigarillo::project_sequences(mcols(alns)$seq, cigar(alns))
       mds <- mcols(alns)$MD
       if (any(is.na(mds))){
           stop("Cannot infer reference from MD tag when MD tag is NA")

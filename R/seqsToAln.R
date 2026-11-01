@@ -27,9 +27,9 @@ seqsToAln <- function(cigar, dnaseq, target, del_char = "-",
     
     if (as.character(GenomicRanges::strand(target)) == "*") strand <- "+"
   
-    result <- GenomicAlignments::sequenceLayer(dnaseq, cigar,
-                                               D.letter = del_char,
-                                               N.letter = "N")
+    result <- cigarillo::project_sequences(dnaseq, cigar,
+                                           D.letter = del_char,
+                                           N.letter = "N")
     if (! is.null(aln_start)){
       shifts <- aln_start - GenomicAlignments::start(target)
       result <- Biostrings::stackStrings(result, shift = shifts,

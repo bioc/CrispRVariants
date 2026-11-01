@@ -1139,10 +1139,10 @@ if return_nms = TRUE
           starts[i] <- as.numeric(names(tt))[order(tt, decreasing = TRUE)][1]
           cigs <- cigar(all_alns[idxs])
           
-          result <- GenomicAlignments::sequenceLayer(sqs, cigs,
-                                                     to = "pairwise",
-                                                     D.letter = "-",
-                                                     N.letter = "N")
+          result <- cigarillo::project_sequences(sqs, cigs,
+                                                 to = "pairwise",
+                                                 D.letter = "-",
+                                                 N.letter = "N")
           shifts <- start - GenomicAlignments::start(.self$target)
           
           # CHECK WITH MORE COMPLEX EXAMPLE

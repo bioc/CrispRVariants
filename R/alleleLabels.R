@@ -155,7 +155,7 @@ indelLabels = function(alns, rc = FALSE, genome.to.pos = NULL,
     ref.seq <- .resolveRefStrand(strand, ref.seq)
     
     # Get sequences aligned to the reference region, i.e. insertions ignored
-    sqs <- sequenceLayer(mcols(alns)$seq, cigar(alns))
+    sqs <- cigarillo::project_sequences(mcols(alns)$seq, cigar(alns))
     if (! all(start(alns) == ref.start)){
       sqs <- stackStrings(sqs, from = 1,
                           shift = start(alns) - ref.start,

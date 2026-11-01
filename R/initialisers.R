@@ -10,6 +10,7 @@
 #'@import methods
 #'@import BiocParallel
 #'@import Biostrings
+#'@import cigarillo
 #'@import ggplot2
 #'@import GenomicAlignments
 #'@import GenomicRanges
