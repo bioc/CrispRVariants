@@ -9,11 +9,11 @@
 #'@return A data frame of insertion sequences, genomic and
 #'relative locations
 getInsertionsTable <- function(alns, pos = 1L){
-    ins_on_qry <- cigarRangesAlongQuerySpace(cigar(alns), ops = "I")
+    ins_on_qry <- cigars_as_ranges_along_query(cigar(alns), ops = "I")
     if (all(lengths(ins_on_qry) == 0)){ return(NULL) }
-    ins_on_genome <- cigarRangesAlongReferenceSpace(cigar(alns),
-                                                    pos = start(alns),
-                                                    ops = "I") 
+    ins_on_genome <- cigars_as_ranges_along_ref(cigar(alns),
+                                                pos = start(alns),
+                                                ops = "I") 
     
     ins_seqs <- extractAt(mcols(alns)$seq, ins_on_qry)
     # Subtract 1 to get coordinates of the leftmost mapped base

@@ -391,7 +391,7 @@ splitInsertions = function(cset, alleles = NULL, sample.pct = NULL, ...){
                         genome.to.pos = cset$genome_to_target,
                         as.string = FALSE, ...)
     
-    indel_locs <- GenomicAlignments::cigarRangesAlongQuerySpace(cigar(alns),
+    indel_locs <- cigarillo::cigars_as_ranges_along_query(cigar(alns),
                                                           ops = c("I","D","N"))
     indel_seqs <- Biostrings::extractAt(SummarizedExperiment::mcols(alns)$seq,
                                         indel_locs)

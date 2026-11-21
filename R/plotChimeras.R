@@ -56,8 +56,8 @@ plotChimeras <- function(chimeric.alns, max.gap = 10, tick.sep = 20,
   # simplify offsets by calculating wrt block?
 
   # Sort chromosomes by minimum read start of any segment on each chr
-  temp_cigs <- cigarRangesAlongQuerySpace(cigar(chimeric.alns))
-  is_match <- CharacterList(explodeCigarOps(cigar(chimeric.alns))) == "M"
+  temp_cigs <- cigars_as_ranges_along_query(cigar(chimeric.alns))
+  is_match <- CharacterList(explode_cigar_ops(cigar(chimeric.alns))) == "M"
   sq_ord <- seqnames(chimeric.alns[order( min(start(temp_cigs[is_match])))])
   GenomeInfoDb::seqlevels(chimeric.alns) <- unique(as.character(sq_ord@values))
   chimeric.alns <- chimeric.alns[order(seqnames(chimeric.alns))]
@@ -69,7 +69,7 @@ plotChimeras <- function(chimeric.alns, max.gap = 10, tick.sep = 20,
   two_strands <- length(unique(is_plus)) > 1
 
   # For reference ranges, shift to actual genomic starting locations
-  ref_ranges <- GenomicAlignments::cigarRangesAlongReferenceSpace(cigars)
+  ref_ranges <- cigarillo::cigars_as_ranges_along_ref(cigars)
   ref_ranges <- GenomicRanges::shift(ref_ranges, start(genomic_locs) -1)
 
   # Entirely negative strand chimeras may be displayed as aligned to reference
@@ -80,8 +80,8 @@ plotChimeras <- function(chimeric.alns, max.gap = 10, tick.sep = 20,
   }
 
   # Extract match ranges, these will be plotted
-  ops <- IRanges::CharacterList(explodeCigarOps(cigars))
-  query_ranges <- GenomicAlignments::cigarRangesAlongQuerySpace(cigars)
+  ops <- IRanges::CharacterList(explode_cigar_ops(cigars))
+  query_ranges <- cigarillo::cigars_as_ranges_along_query(cigars)
 
   # Find all "M" operations (runs of aligned bases)
   mm <- ops == "M"

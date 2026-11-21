@@ -65,11 +65,11 @@ setMethod("narrowAlignments", signature("GAlignments", "GRanges"),
     
     if (isTRUE(verbose)) message("narrowing alignments\n")
     
-    ref_ranges <- GenomicAlignments::cigarRangesAlongReferenceSpace(cigar(alns))
+    ref_ranges <- cigarillo::cigars_as_ranges_along_ref(cigar(alns))
     genomic <- GenomicRanges::shift(ref_ranges, start(alns)-1)
     
     # Find the on target operations
-    clipped <- unlist(GenomicAlignments::explodeCigarOps(cigar(alns)))
+    clipped <- unlist(cigarillo::explode_cigar_ops(cigar(alns)))
     clipped <- clipped %in% clipping.ops
     on_target <- unlist(start(genomic) <= end(target) &
                           end(genomic) >= start(target))
@@ -82,7 +82,7 @@ setMethod("narrowAlignments", signature("GAlignments", "GRanges"),
     
     # Find cases where the first or last on target operation is a match ("M"),
     # operations overlap boundaries (partial alignments don't need trimming)
-    ops <- unlist(explodeCigarOps(cigar(alns)))
+    ops <- unlist(explode_cigar_ops(cigar(alns)))
     first_op_m <- ops[unlist(first_on_tg)] %in% match.ops &
       start(alns) < start(target)
     last_op_m <- ops[unlist(last_on_tg)] %in% match.ops &
@@ -92,7 +92,7 @@ setMethod("narrowAlignments", signature("GAlignments", "GRanges"),
     # need to know where the target start (genomic) is wrt
     # sequence (query) coordinates
     cig <- GenomicAlignments::cigar(alns)
-    q_ranges <- GenomicAlignments::cigarRangesAlongQuerySpace(cig)
+    q_ranges <- cigarillo::cigars_as_ranges_along_query(cig)
     sq_starts <- start(q_ranges)[first_on_tg]
     
     genomic_offset_fom <- start(target) - start(genomic)[first_on_tg][first_op_m]

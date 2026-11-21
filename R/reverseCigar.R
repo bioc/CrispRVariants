@@ -3,8 +3,8 @@
 #'@param cigars the cigar strings.
 #'@return The reversed cigar string
 reverseCigar <- function(cigars){
-  wdths <- explodeCigarOpLengths(cigars)
-  ops <- explodeCigarOps(cigars)
+  wdths <- explode_cigar_oplens(cigars)
+  ops <- explode_cigar_ops(cigars)
   temp <- rev(relist(rev(paste0(unlist(wdths), unlist(ops))), rev(wdths)))
   result <- as.character(Map(base::paste, temp, collapse = ""))
 }

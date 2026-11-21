@@ -364,7 +364,7 @@ Input parameters:
 
     x <- alns(.self)
 
-    ir <- cigarRangesAlongReferenceSpace(unlist(cigar(x)),
+    ir <- cigars_as_ranges_along_ref(unlist(cigar(x)),
                 pos = unlist(GenomicAlignments::start(x)),
                 ops = c("I","D"), with.ops = TRUE)
     

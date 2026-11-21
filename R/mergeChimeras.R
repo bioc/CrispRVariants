@@ -71,7 +71,7 @@ mergeChimeras <- function(bam, chimera_idxs = NULL, verbose = TRUE,
     # For merge-able alignments, the sum of the widths of the aligned regions of read n-1
     # should be less than or equal to the first aligned base of read n wrt the full seq
     cigars <- cigar(bam)[chimera_idxs]
-    qrng <- GenomicAlignments::cigarRangesAlongQuerySpace(cigars,
+    qrng <- cigarillo::cigars_as_ranges_along_query(cigars,
                before.hard.clipping = TRUE, ops = c("M", "I"))
     first_aligned <- min(start(qrng))
     last_aligned <- max(end(qrng))

@@ -13,7 +13,7 @@ Filtering of the bam should generally be done before initialising a CrisprRun ob
 
 \item{genome.ranges}{A GRangesList of genomic coordinates for the cigar operations.
 If bam is a standard GAlignments object, this is equivalent to
-cigarRangesAlongReferenceSpace + start(bam)}
+cigars_as_ranges_along_ref + start(bam)}
 
 \item{rc}{(reverse complement)  Should the alignments be reverse complemented,
 i.e. displayed with respect to the negative strand?  (Default: FALSE)}

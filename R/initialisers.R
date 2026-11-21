@@ -162,7 +162,7 @@ setMethod("readsToTarget", signature("GAlignments", "GRanges"),
     # Collapse pairs of narrowed reads
 
     if (isTRUE(collapse.pairs)){
-      gen_ranges <- GenomicAlignments::cigarRangesAlongReferenceSpace(
+      gen_ranges <- cigarillo::cigars_as_ranges_along_ref(
                        cigar(result), pos = start(result))
       
       result <- collapsePairs(result, genome.ranges = gen_ranges,

@@ -122,7 +122,7 @@ setMethod("countDeletions", signature("GAlignments"),
           function(alns, ..., multi.del = FALSE, del.and.ins = FALSE,
                    del.ops=c("D")){
 
-  cigar_ops <- CharacterList(explodeCigarOps(cigar(alns)))
+  cigar_ops <- CharacterList(explode_cigar_ops(cigar(alns)))
 
   if (isTRUE(multi.del)){
     has_del <- any(cigar_ops %in% del.ops)
@@ -163,7 +163,7 @@ setGeneric("countInsertions", function(alns, ...) {
 setMethod("countInsertions", signature("GAlignments"),
           function(alns, ..., ins.and.del = FALSE, multi.ins = FALSE, del.ops = c("D")){
 
-  cigar_ops <- CharacterList(explodeCigarOps(cigar(alns)))
+  cigar_ops <- CharacterList(explode_cigar_ops(cigar(alns)))
 
   if (isTRUE(multi.ins)){
     has_ins <- any(cigar_ops == "I")
@@ -193,7 +193,7 @@ setGeneric("countIndels", function(alns) {
 #'@rdname indelCounts
 setMethod("countIndels", signature("GAlignments"),
           function(alns){
-  cigar_ops <- CharacterList(explodeCigarOps(cigar(alns)))
+  cigar_ops <- CharacterList(explode_cigar_ops(cigar(alns)))
   return(sum(any(cigar_ops %in% c("I", "D", "N"))))
 })
 
@@ -356,8 +356,8 @@ dispatchDots <- function(func, ..., call = FALSE){
 #'@rdname explodeCigarOpCombs
 #'@return Exploded cigar operations with operation widths
 .explodeCigarOpCombs <- function(cigar, ops = GenomicAlignments::CIGAR_OPS){
-    wdths <- GenomicAlignments::explodeCigarOpLengths(cigar, ops = ops)
-    keep.ops <- GenomicAlignments::explodeCigarOps(cigar, ops = ops)
+    wdths <- cigarillo::explode_cigar_oplens(cigar, ops = ops)
+    keep.ops <- cigarillo::explode_cigar_ops(cigar, ops = ops)
     result <- IRanges::CharacterList(relist(paste0(unlist(wdths),
                                                    unlist(keep.ops)),
                                             wdths))
@@ -386,9 +386,9 @@ setMethod("selectOps", signature("character"),
           function(cigar, ..., ops = GenomicAlignments::CIGAR_OPS,
                    op.regions = NULL, pos = 1L){
             
-    op_rngs <- cigarRangesAlongReferenceSpace(cigar, with.ops = TRUE,
-                                              ops = ops, pos = pos)
-    wdths <- explodeCigarOpLengths(cigar, ops = ops)
+    op_rngs <- cigars_as_ranges_along_ref(cigar, with.ops = TRUE,
+                                          ops = ops, pos = pos)
+    wdths <- explode_cigar_oplens(cigar, ops = ops)
     op_labs <- .explodeCigarOpCombs(cigar, ops)
     
     temp <- unlist(op_rngs)
