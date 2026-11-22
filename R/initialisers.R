@@ -163,7 +163,9 @@ setMethod("readsToTarget", signature("GAlignments", "GRanges"),
 
     if (isTRUE(collapse.pairs)){
       gen_ranges <- cigarillo::cigars_as_ranges_along_ref(
-                       cigar(result), pos = start(result))
+                       cigar(result),
+                       lmmpos = start(result))
+                       #pos = start(result))
       
       result <- collapsePairs(result, genome.ranges = gen_ranges,
                               use.consensus = use.consensus,

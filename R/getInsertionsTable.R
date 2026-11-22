@@ -12,7 +12,8 @@ getInsertionsTable <- function(alns, pos = 1L){
     ins_on_qry <- cigars_as_ranges_along_query(cigar(alns), ops = "I")
     if (all(lengths(ins_on_qry) == 0)){ return(NULL) }
     ins_on_genome <- cigars_as_ranges_along_ref(cigar(alns),
-                                                pos = start(alns),
+                                                #pos = start(alns),
+                                                lmmpos = start(alns),
                                                 ops = "I") 
     
     ins_seqs <- extractAt(mcols(alns)$seq, ins_on_qry)

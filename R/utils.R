@@ -387,7 +387,9 @@ setMethod("selectOps", signature("character"),
                    op.regions = NULL, pos = 1L){
             
     op_rngs <- cigars_as_ranges_along_ref(cigar, with.ops = TRUE,
-                                          ops = ops, pos = pos)
+                                          ops = ops, 
+                                          #pos = pos)
+                                          lmmpos = pos)
     wdths <- explode_cigar_oplens(cigar, ops = ops)
     op_labs <- .explodeCigarOpCombs(cigar, ops)
     
